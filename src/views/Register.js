@@ -33,7 +33,7 @@ class Register extends Component {
       email: emailAddress,
       password
     }
-    fetch("http://192.168.100.32:8000/account/signup", {
+    fetch("https://api-for-ecommerce.herokuapp.com/account/signup", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {

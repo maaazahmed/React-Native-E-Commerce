@@ -8,7 +8,7 @@ import {
   createMaterialTopTabNavigator
 } from "react-navigation";
 import Icon from "@expo/vector-icons/Ionicons";
-import Login from "./src/views/Login";
+import Foront from "./src/views/Foront";
 import Register from "./src/views/Register";
 import Home from "./src/views/Home";
 import Category from "./src/views/Category";
@@ -21,7 +21,7 @@ import Payment from "./src/views/Payment";
 import TermsAndConditions from "./src/views/TermsAndConditions";
 import CreditCard from "./src/views/CreditCard";
 import CustomDrawerComponent from "./src/components/CustomDrawerComponent";
-
+import Login from "./src/views/Login"
 export default class App extends React.Component {
   render() {
     return <AppContainer />;
@@ -287,14 +287,17 @@ const HomeDrawNavigator = createDrawerNavigator(
 );
 
 const AppSwitchNavigator = createSwitchNavigator({
-  Login: {
-    screen: Login
+  Foront: {
+    screen: Foront
   },
   Register: {
     screen: Register
   },
   Home: {
     screen: HomeDrawNavigator
+  },
+  Login: {
+    screen: Login
   }
 });
 

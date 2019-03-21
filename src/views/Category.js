@@ -124,12 +124,12 @@ class Category extends Component {
   componentDidMount() {
     const type = this.props.navigation.state.params
     let arr = []
-    fetch("http://192.168.0.102:8000/product/getProduct?category=Dresses", {
+    fetch("https://api-for-ecommerce.herokuapp.com/product/getProduct?category=Dresses", {
       method: "get",
     }).then((res) => {
       res.json().then((data) => {
         for (var i = 0; i < data.length; i++) {
-          if (data[i].category[0]+ "s" === type.name) {
+          if (data[i].category[0] + "s" === type.name) {
             arr.push(data[i])
           }
         }
@@ -147,7 +147,7 @@ class Category extends Component {
   getProduct(item, ind) {
     const type = this.props.navigation.state.params
     let arr = []
-    fetch("http://192.168.0.102:8000/product/getProduct?category=" + item, {
+    fetch("https://api-for-ecommerce.herokuapp.com/product/getProduct?category=" + item, {
       method: "get",
     }).then((res) => {
       res.json().then((data) => {
@@ -230,6 +230,28 @@ class Category extends Component {
       );
     });
   };
+  renderItemList_Shorts = () => {
+    return this.state.SHOES.map((item, i) => {
+      return (
+        <ItemList
+          onPress={() =>
+            this.props.navigation.navigate("Detail", {
+              detailName: item.name,
+              detailImageUri: { uri: item.imageUrl },
+              detailPriceOne: item.price,
+              detailPriceTwo: item.priceTwo ? item.priceTwo : null
+            })
+          }
+          // key={item.id}
+          key={i}
+          imageUri={{ uri: item.imageUrl }}
+          name={item.name}
+          priceOne={item.price}
+          priceTwo={item.priceTwo ? item.priceTwo : null}
+        />
+      );
+    });
+  };
 
 
   renderItemList = () => {
@@ -237,6 +259,8 @@ class Category extends Component {
       return this.renderItemList_Dress();
     } else if (this.state.currentIndex === 1) {
       return this.renderItemList_Shoes();
+    } else if (this.state.currentIndex === 2) {
+      return this.renderItemList_Shorts();
     }
   };
 

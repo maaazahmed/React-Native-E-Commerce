@@ -17,8 +17,7 @@ class EditBasket extends Component {
         style={{
           flex: 1,
           backgroundColor: "#EFF0F1"
-        }}
-      >
+        }}>
         <BasketItem
           editIcon={false}
           imageUri={basketItemImageUri}

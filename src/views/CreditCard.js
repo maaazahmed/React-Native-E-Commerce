@@ -41,7 +41,7 @@ class CreditCard extends Component {
           CVVCode,
           creditCardNumber
         }
-      fetch("http://192.168.100.198:8000/payment/savepayment", {
+      fetch("https://api-for-ecommerce.herokuapp.com/payment/savepayment", {
         method: "POST",
         body: JSON.stringify(pay),
         headers: {

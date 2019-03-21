@@ -71,7 +71,7 @@ class Address extends Component {
       addressLine1, addressLine2,
     }
     if (firstName !== "" && lastName !== "" && addressLine1 !== "" && addressLine2 !== "" && city !== "" && postcode !== "" && contry !== "" && state !== "") {
-      fetch("http://192.168.100.198:8000/order/addOrder", {
+      fetch("https://api-for-ecommerce.herokuapp.com/order/addOrder", {
         method: "POST",
         body: JSON.stringify(order),
         headers: {

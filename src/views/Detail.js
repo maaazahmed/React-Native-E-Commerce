@@ -133,6 +133,10 @@ class Detail extends Component {
     );
   };
 
+  purchaseHeandler(){
+    
+  }
+
   render() {
     const animatedSizeBoxOpacity = this.sizeBox.interpolate({
       inputRange: [hp("30%"), hp("65%")],
@@ -362,6 +366,7 @@ class Detail extends Component {
                 }}
               >
                 <TouchableOpacity
+                onPress={this.purchaseHeandler.bind(this)}
                   style={{
                     flex: 1,
                     flexDirection: "row",
